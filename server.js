@@ -16,3 +16,26 @@ const db = mysql.createConnection(
   },
   console.log(`Connected to the movie_db database.`)
 );
+
+app.post('/api/add-movie', (req, res) =>{
+    res.json(`${req.method} request received to add a review.`);
+    console.log(`${req.method} request received to add a review.`);
+});
+
+app.get('/api/movies', (req, res) => {
+    res.json(`${req.method} request received to retrieve movies`);
+    console.info(`${req.method} request received to retrieve movies`);
+  });
+
+app.delete('/api/movie/:id', (req, res) => {
+    db.query(`DELETE FROM movies WHERE id = ?`, req.params, (err, result) => {
+        if (err) {
+          console.log(err);
+        }
+        console.log(result);
+    });
+});
+
+app.listen(PORT, () =>
+  console.log(`Express server listening on port ${PORT}!`)
+);

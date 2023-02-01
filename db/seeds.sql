@@ -5,9 +5,9 @@ VALUES ("Legally Blonde"),
         ("Clueless"),
         ("Inception");
 
-INSERT INTO reviews (review)
-VALUES ("great film! The bend and snap changed my life."),
-        ("One of the best visually appealing movies. The visuals are insane!"),
-        ("Love the true horror brought on by The Joker!"),
-        ("So quoteable, ugh, AS IF!"),
-        ("He's still dreaming...");
+INSERT INTO reviews (review, movie_id)
+VALUES ("great film! The bend and snap changed my life.", 1),
+        ("One of the best visually appealing movies. The visuals are insane!", 2),
+        ("Love the true horror brought on by The Joker!", 3),
+        ("So quoteable, ugh, AS IF!", 4),
+        ("He's still dreaming...", 5);
