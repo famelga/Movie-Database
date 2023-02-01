@@ -38,6 +38,28 @@ app.delete('/api/movie/:id', (req, res) => {
     });
 });
 
+app.get('/api/movie-reviews', (req, res) => {
+    db.query('SELECT movie_name, review FROM movies JOIN reviews ON movies.id = reviews.movie_id;', (err, result) => {
+        if (err) {
+        res.status(404).end();
+          console.log(err);
+        }
+        res.json(`Success!`);
+        console.log(result);
+    });
+  });
+
+  app.put('/api/review/:id', (req, res) => {    
+    db.query(`UPDATE reviews SET review = ${JSON.stringify(req.body)} WHERE id = ?`, req.params.id, (err, result) => {
+        if (err) {
+        res.status(404).end();
+          console.log(err);
+        }
+        res.json(`Success!`);
+        console.log(result);
+    });
+  });
+
 app.listen(PORT, () =>
   console.log(`Express server listening on port ${PORT}!`)
 );

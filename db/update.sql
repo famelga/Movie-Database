@@ -1,0 +1,3 @@
+-- UPDATE reviews 
+-- SET review = ""
+-- WHERE id = ?;
