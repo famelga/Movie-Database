@@ -28,10 +28,12 @@ app.get('/api/movies', (req, res) => {
   });
 
 app.delete('/api/movie/:id', (req, res) => {
-    db.query(`DELETE FROM movies WHERE id = ?`, req.params, (err, result) => {
+    db.query(`DELETE FROM movies WHERE id = ?`, req.params.id, (err, result) => {
         if (err) {
+        res.status(404).end();
           console.log(err);
         }
+        res.json(`Success!`);
         console.log(result);
     });
 });
